@@ -1,0 +1,301 @@
+ocr_text,name,matched_name,transactions,pep_flag,sanctions_flag
+"Name: Vihaan Verma
+DOB: 08/07/1985
+PAN: RRFPY7902M",Vihaan Verma,Vihaan Verma,"[{'amount': 84254, 'type': 'credit', 'mode': 'cash'}, {'amount': 27664, 'type': 'debit', 'mode': 'card'}, {'amount': 25472, 'type': 'credit', 'mode': 'upi'}, {'amount': 92923, 'type': 'credit', 'mode': 'cash'}]",0,1
+"Name: Ishaan Gupta
+DOB: 08/03/1996
+PAN: JHRBR8102C",Ishaan Gupta,Ishaan Gupta,"[{'amount': 14337, 'type': 'debit', 'mode': 'cash'}, {'amount': 70562, 'type': 'debit', 'mode': 'cash'}, {'amount': 62396, 'type': 'credit', 'mode': 'cash'}, {'amount': 57246, 'type': 'credit', 'mode': 'salary'}]",1,0
+"Name: Saanvi Reddy
+DOB: 04/10/2002
+PAN: BXVQP1927H",Saanvi Reddy,Saanvi Reddy,"[{'amount': 94875, 'type': 'credit', 'mode': 'card'}, {'amount': 19917, 'type': 'debit', 'mode': 'salary'}, {'amount': 59393, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Saanvi Joshi
+DOB: 12/05/1985
+PAN: QEPTU5009N",Saanvi Joshi,Saanvi Joshi,"[{'amount': 92720, 'type': 'debit', 'mode': 'card'}, {'amount': 54376, 'type': 'debit', 'mode': 'salary'}]",1,0
+"Name: Vihaan Sharma
+DOB: 10/10/1995
+PAN: NFUYK6157W",Vihaan Sharma,Vihaan Sharma,"[{'amount': 60123, 'type': 'debit', 'mode': 'card'}, {'amount': 43922, 'type': 'credit', 'mode': 'upi'}, {'amount': 5296, 'type': 'credit', 'mode': 'cash'}]",0,1
+"Name: Saanvi Iyer
+DOB: 01/11/1986
+PAN: ARVPI4563N",Saanvi Iyer,Saanvi Iyer,"[{'amount': 22398, 'type': 'credit', 'mode': 'card'}, {'amount': 99633, 'type': 'debit', 'mode': 'card'}]",0,0
+"Name: Saanvi Joshi
+DOB: 22/08/1994
+PAN: VWPUH5734M",Saanvi Joshi,Saanvi Joshi,"[{'amount': 93598, 'type': 'credit', 'mode': 'cash'}, {'amount': 79926, 'type': 'credit', 'mode': 'salary'}, {'amount': 83970, 'type': 'debit', 'mode': 'card'}, {'amount': 71701, 'type': 'credit', 'mode': 'salary'}, {'amount': 96057, 'type': 'credit', 'mode': 'upi'}]",1,0
+"Name: Vihaan Mehta
+DOB: 23/03/2002
+PAN: UCQMI1767P",Vihaan Mehta,Vihaan Mehta,"[{'amount': 85480, 'type': 'credit', 'mode': 'card'}, {'amount': 37900, 'type': 'debit', 'mode': 'cash'}]",0,0
+"Name: Diya Verma
+DOB: 26/10/1990
+PAN: BUMFJ9262J",Diya Verma,Diya Verma,"[{'amount': 16507, 'type': 'debit', 'mode': 'card'}, {'amount': 63898, 'type': 'debit', 'mode': 'cash'}, {'amount': 21800, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Aryan Gupta
+DOB: 10/01/1981
+PAN: PXWVG5244D",Aryan Gupta,Aryan Gupta,"[{'amount': 55627, 'type': 'credit', 'mode': 'upi'}, {'amount': 58197, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Aarav Patel
+DOB: 13/03/2002
+PAN: FHITP8214V",Aarav Patel,Aarav Patel,"[{'amount': 88284, 'type': 'debit', 'mode': 'upi'}, {'amount': 27460, 'type': 'debit', 'mode': 'upi'}]",0,0
+"Name: Ananya Sharma
+DOB: 15/07/1995
+PAN: OTDWT4486U",Ananya Sharma,Ananya Sharma,"[{'amount': 80402, 'type': 'debit', 'mode': 'salary'}, {'amount': 52737, 'type': 'debit', 'mode': 'upi'}]",1,0
+"Name: Saanvi Patel
+DOB: 23/05/1985
+PAN: XSAAY3646H",Saanvi Patel,Saanvi Patel,"[{'amount': 46514, 'type': 'credit', 'mode': 'cash'}, {'amount': 67900, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Rohan Singh
+DOB: 09/06/2000
+PAN: NNSFZ7078Z",Rohan Singh,Rohan Singh,"[{'amount': 49876, 'type': 'debit', 'mode': 'cash'}, {'amount': 88341, 'type': 'debit', 'mode': 'salary'}, {'amount': 45279, 'type': 'debit', 'mode': 'card'}, {'amount': 81078, 'type': 'debit', 'mode': 'card'}, {'amount': 24033, 'type': 'debit', 'mode': 'card'}]",1,0
+"Name: Diya Patel
+DOB: 06/06/1988
+PAN: AAAZK5801A",Diya Patel,Diya Patel,"[{'amount': 97805, 'type': 'debit', 'mode': 'upi'}, {'amount': 68253, 'type': 'debit', 'mode': 'salary'}, {'amount': 72947, 'type': 'debit', 'mode': 'card'}, {'amount': 1340, 'type': 'debit', 'mode': 'salary'}]",1,1
+"Name: Aryan Singh
+DOB: 09/09/1994
+PAN: HWENA4618E",Aryan Singh,Aryan Singh,"[{'amount': 88270, 'type': 'debit', 'mode': 'salary'}, {'amount': 72358, 'type': 'credit', 'mode': 'upi'}, {'amount': 39128, 'type': 'debit', 'mode': 'salary'}, {'amount': 87604, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Ishaan Joshi
+DOB: 07/08/1981
+PAN: CFXVD7898Q",Ishaan Joshi,Ishaan Joshi,"[{'amount': 9328, 'type': 'credit', 'mode': 'cash'}, {'amount': 64950, 'type': 'debit', 'mode': 'salary'}, {'amount': 49277, 'type': 'debit', 'mode': 'upi'}, {'amount': 82509, 'type': 'debit', 'mode': 'upi'}, {'amount': 70824, 'type': 'debit', 'mode': 'card'}]",1,1
+"Name: Aryan Sharma
+DOB: 17/12/1991
+PAN: EZRSV4632B",Aryan Sharma,Aryan Sharma,"[{'amount': 16105, 'type': 'credit', 'mode': 'salary'}, {'amount': 81587, 'type': 'debit', 'mode': 'cash'}]",1,0
+"Name: Kabir Verma
+DOB: 25/01/1990
+PAN: CWCDV4362U",Kabir Verma,Kabir Verma,"[{'amount': 23800, 'type': 'credit', 'mode': 'card'}, {'amount': 10136, 'type': 'debit', 'mode': 'card'}, {'amount': 36045, 'type': 'debit', 'mode': 'cash'}, {'amount': 73480, 'type': 'debit', 'mode': 'card'}]",0,0
+"Name: Aryan Patel
+DOB: 27/06/1993
+PAN: BCICM7869C",Aryan Patel,Aryan Patel,"[{'amount': 92412, 'type': 'debit', 'mode': 'salary'}, {'amount': 97571, 'type': 'credit', 'mode': 'card'}, {'amount': 41246, 'type': 'credit', 'mode': 'cash'}]",1,1
+"Name: Kabir Singh
+DOB: 20/12/2001
+PAN: NAUCX1957N",Kabir Singh,Kabir Singh,"[{'amount': 40877, 'type': 'credit', 'mode': 'card'}, {'amount': 82005, 'type': 'credit', 'mode': 'salary'}, {'amount': 95533, 'type': 'credit', 'mode': 'cash'}, {'amount': 87058, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Aditya Verma
+DOB: 11/01/1992
+PAN: UEECR5567L",Aditya Verma,Aditya Verma,"[{'amount': 32493, 'type': 'credit', 'mode': 'salary'}, {'amount': 13510, 'type': 'credit', 'mode': 'salary'}, {'amount': 12202, 'type': 'debit', 'mode': 'cash'}]",0,0
+"Name: Vihaan Iyer
+DOB: 07/01/2001
+PAN: FKHRJ6068K",Vihaan Iyer,Vihaan Iyer,"[{'amount': 34266, 'type': 'debit', 'mode': 'card'}, {'amount': 73186, 'type': 'credit', 'mode': 'cash'}, {'amount': 76750, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Diya Singh
+DOB: 22/05/1984
+PAN: NSYYU8917G",Diya Singh,Diya Singh,"[{'amount': 80395, 'type': 'debit', 'mode': 'salary'}, {'amount': 46786, 'type': 'debit', 'mode': 'cash'}, {'amount': 30252, 'type': 'debit', 'mode': 'cash'}, {'amount': 27865, 'type': 'credit', 'mode': 'salary'}, {'amount': 26794, 'type': 'credit', 'mode': 'salary'}]",1,0
+"Name: Ananya Patel
+DOB: 17/12/1997
+PAN: KAMCH7940W",Ananya Patel,Ananya Patel,"[{'amount': 61948, 'type': 'debit', 'mode': 'salary'}, {'amount': 93281, 'type': 'credit', 'mode': 'cash'}, {'amount': 97286, 'type': 'debit', 'mode': 'cash'}]",0,0
+"Name: Aryan Sharma
+DOB: 25/10/2001
+PAN: LMFFR4980C",Aryan Sharma,Aryan Sharma,"[{'amount': 15747, 'type': 'debit', 'mode': 'card'}, {'amount': 99377, 'type': 'credit', 'mode': 'card'}, {'amount': 93671, 'type': 'credit', 'mode': 'card'}, {'amount': 69401, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Ananya Gupta
+DOB: 04/08/1999
+PAN: JLZFS2962E",Ananya Gupta,Ananya Gupta,"[{'amount': 96154, 'type': 'credit', 'mode': 'upi'}, {'amount': 4038, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Ananya Mehta
+DOB: 05/09/1989
+PAN: YOBMN4393A",Ananya Mehta,Ananya Mehta,"[{'amount': 99284, 'type': 'debit', 'mode': 'upi'}, {'amount': 48533, 'type': 'debit', 'mode': 'card'}, {'amount': 64949, 'type': 'credit', 'mode': 'salary'}, {'amount': 89013, 'type': 'debit', 'mode': 'card'}]",1,0
+"Name: Aditya Verma
+DOB: 22/12/1985
+PAN: BIAQJ9029H",Aditya Verma,Aditya Verma,"[{'amount': 43130, 'type': 'credit', 'mode': 'card'}, {'amount': 50113, 'type': 'debit', 'mode': 'salary'}, {'amount': 31911, 'type': 'credit', 'mode': 'cash'}, {'amount': 30547, 'type': 'credit', 'mode': 'card'}, {'amount': 56862, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Ananya Mehta
+DOB: 08/06/2002
+PAN: TFRFC6438V",Ananya Mehta,Ananya Mehta,"[{'amount': 77600, 'type': 'debit', 'mode': 'salary'}, {'amount': 91037, 'type': 'debit', 'mode': 'salary'}, {'amount': 89173, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Vihaan Iyer
+DOB: 28/12/1991
+PAN: DPSSK9783A",Vihaan Iyer,Vihaan Iyer,"[{'amount': 91005, 'type': 'debit', 'mode': 'salary'}, {'amount': 57598, 'type': 'debit', 'mode': 'salary'}, {'amount': 52927, 'type': 'credit', 'mode': 'card'}, {'amount': 73700, 'type': 'debit', 'mode': 'upi'}, {'amount': 47376, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Aryan Iyer
+DOB: 24/02/1990
+PAN: WWSMY1392S",Aryan Iyer,Aryan Iyer,"[{'amount': 20611, 'type': 'debit', 'mode': 'cash'}, {'amount': 46964, 'type': 'debit', 'mode': 'upi'}, {'amount': 95718, 'type': 'credit', 'mode': 'card'}, {'amount': 17089, 'type': 'credit', 'mode': 'salary'}]",1,0
+"Name: Diya Iyer
+DOB: 07/12/1983
+PAN: XLBDE2001Z",Diya Iyer,Diya Iyer,"[{'amount': 92532, 'type': 'debit', 'mode': 'card'}, {'amount': 39044, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Ishaan Iyer
+DOB: 11/11/1995
+PAN: BWIAK6180A",Ishaan Iyer,Ishaan Iyer,"[{'amount': 18897, 'type': 'credit', 'mode': 'cash'}, {'amount': 76435, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Diya Patel
+DOB: 20/12/1996
+PAN: MFETR1952E",Diya Patel,Diya Patel,"[{'amount': 45132, 'type': 'debit', 'mode': 'upi'}, {'amount': 39130, 'type': 'debit', 'mode': 'upi'}, {'amount': 75816, 'type': 'credit', 'mode': 'cash'}, {'amount': 96281, 'type': 'credit', 'mode': 'card'}, {'amount': 15773, 'type': 'credit', 'mode': 'card'}]",0,0
+"Name: Aryan Nair
+DOB: 04/12/1993
+PAN: BAMII7530Y",Aryan Nair,Aryan Nair,"[{'amount': 48942, 'type': 'debit', 'mode': 'salary'}, {'amount': 9316, 'type': 'debit', 'mode': 'salary'}, {'amount': 30679, 'type': 'debit', 'mode': 'upi'}]",0,0
+"Name: Saanvi Singh
+DOB: 26/07/1996
+PAN: GWCUJ5780M",Saanvi Singh,Saanvi Singh,"[{'amount': 17822, 'type': 'debit', 'mode': 'salary'}, {'amount': 9974, 'type': 'debit', 'mode': 'card'}, {'amount': 1655, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Kabir Singh
+DOB: 15/04/1998
+PAN: AHIVP9830Z",Kabir Singh,Kabir Singh,"[{'amount': 67761, 'type': 'debit', 'mode': 'salary'}, {'amount': 46632, 'type': 'debit', 'mode': 'salary'}, {'amount': 52034, 'type': 'credit', 'mode': 'upi'}, {'amount': 16496, 'type': 'debit', 'mode': 'cash'}, {'amount': 8869, 'type': 'credit', 'mode': 'cash'}]",1,0
+"Name: Diya Verma
+DOB: 14/04/1981
+PAN: BGHLA7108S",Diya Verma,Diya Verma,"[{'amount': 15989, 'type': 'credit', 'mode': 'salary'}, {'amount': 96307, 'type': 'debit', 'mode': 'cash'}, {'amount': 69290, 'type': 'credit', 'mode': 'card'}, {'amount': 49842, 'type': 'debit', 'mode': 'card'}]",1,0
+"Name: Rohan Sharma
+DOB: 07/04/1998
+PAN: EJKWY2655D",Rohan Sharma,Rohan Sharma,"[{'amount': 21071, 'type': 'credit', 'mode': 'cash'}, {'amount': 29209, 'type': 'credit', 'mode': 'card'}, {'amount': 12075, 'type': 'credit', 'mode': 'card'}]",0,0
+"Name: Ananya Verma
+DOB: 10/07/1981
+PAN: DJVOU4692V",Ananya Verma,Ananya Verma,"[{'amount': 14923, 'type': 'debit', 'mode': 'salary'}, {'amount': 36296, 'type': 'debit', 'mode': 'card'}, {'amount': 87495, 'type': 'debit', 'mode': 'card'}, {'amount': 12873, 'type': 'credit', 'mode': 'upi'}]",1,0
+"Name: Kabir Gupta
+DOB: 01/06/1986
+PAN: XGUER6055U",Kabir Gupta,Kabir Gupta,"[{'amount': 35035, 'type': 'debit', 'mode': 'upi'}, {'amount': 8087, 'type': 'debit', 'mode': 'cash'}, {'amount': 27344, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Kabir Singh
+DOB: 20/09/1983
+PAN: EHMJZ5440A",Kabir Singh,Kabir Singh,"[{'amount': 59962, 'type': 'credit', 'mode': 'salary'}, {'amount': 50416, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Aryan Mehta
+DOB: 22/03/1981
+PAN: KREMR1610H",Aryan Mehta,Aryan Mehta,"[{'amount': 74916, 'type': 'debit', 'mode': 'cash'}, {'amount': 14368, 'type': 'credit', 'mode': 'salary'}, {'amount': 46362, 'type': 'credit', 'mode': 'cash'}, {'amount': 29037, 'type': 'debit', 'mode': 'upi'}, {'amount': 88167, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Kabir Mehta
+DOB: 23/08/1987
+PAN: ZIELK2228F",Kabir Mehta,Kabir Mehta,"[{'amount': 71280, 'type': 'debit', 'mode': 'upi'}, {'amount': 19783, 'type': 'debit', 'mode': 'salary'}, {'amount': 41807, 'type': 'credit', 'mode': 'salary'}, {'amount': 71650, 'type': 'debit', 'mode': 'upi'}, {'amount': 93039, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Saanvi Gupta
+DOB: 23/06/1992
+PAN: IEDDR1561J",Saanvi Gupta,Saanvi Gupta,"[{'amount': 58264, 'type': 'credit', 'mode': 'salary'}, {'amount': 41340, 'type': 'debit', 'mode': 'cash'}]",1,0
+"Name: Vihaan Nair
+DOB: 16/05/1996
+PAN: YZREH2982X",Vihaan Nair,Vihaan Nair,"[{'amount': 92710, 'type': 'credit', 'mode': 'card'}, {'amount': 90629, 'type': 'debit', 'mode': 'cash'}, {'amount': 11686, 'type': 'debit', 'mode': 'card'}]",0,0
+"Name: Saanvi Reddy
+DOB: 24/01/2002
+PAN: NMXCD2433E",Saanvi Reddy,Saanvi Reddy,"[{'amount': 61685, 'type': 'debit', 'mode': 'cash'}, {'amount': 89195, 'type': 'credit', 'mode': 'upi'}, {'amount': 77132, 'type': 'credit', 'mode': 'card'}, {'amount': 48860, 'type': 'credit', 'mode': 'cash'}]",0,1
+"Name: Aryan Reddy
+DOB: 20/01/1983
+PAN: XHCDD1303E",Aryan Reddy,Aryan Reddy,"[{'amount': 31781, 'type': 'debit', 'mode': 'card'}, {'amount': 83097, 'type': 'debit', 'mode': 'upi'}, {'amount': 12115, 'type': 'debit', 'mode': 'card'}, {'amount': 22160, 'type': 'debit', 'mode': 'card'}]",0,0
+"Name: Vihaan Singh
+DOB: 18/12/1999
+PAN: AKSFC9776R",Vihaan Singh,Vihaan Singh,"[{'amount': 25135, 'type': 'debit', 'mode': 'cash'}, {'amount': 3131, 'type': 'debit', 'mode': 'card'}, {'amount': 12231, 'type': 'debit', 'mode': 'upi'}, {'amount': 73761, 'type': 'debit', 'mode': 'cash'}]",1,1
+"Name: Aditya Sharma
+DOB: 27/07/1989
+PAN: LMMPH7720X",Aditya Sharma,Aditya Sharma,"[{'amount': 35098, 'type': 'debit', 'mode': 'cash'}, {'amount': 30264, 'type': 'debit', 'mode': 'cash'}, {'amount': 36955, 'type': 'debit', 'mode': 'cash'}]",0,0
+"Name: Diya Gupta
+DOB: 13/03/1984
+PAN: FLCNT4743C",Diya Gupta,Diya Gupta,"[{'amount': 16546, 'type': 'credit', 'mode': 'upi'}, {'amount': 16945, 'type': 'debit', 'mode': 'cash'}]",0,1
+"Name: Aarav Iyer
+DOB: 11/02/1994
+PAN: HBLVS7805G",Aarav Iyer,Aarav Iyer,"[{'amount': 61852, 'type': 'debit', 'mode': 'upi'}, {'amount': 60906, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Rohan Singh
+DOB: 07/07/1998
+PAN: MQSBL2728J",Rohan Singh,Rohan Singh,"[{'amount': 30443, 'type': 'debit', 'mode': 'card'}, {'amount': 6113, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Ananya Verma
+DOB: 14/02/1995
+PAN: SBCKZ5379G",Ananya Verma,Ananya Verma,"[{'amount': 29537, 'type': 'debit', 'mode': 'salary'}, {'amount': 85673, 'type': 'debit', 'mode': 'upi'}]",1,0
+"Name: Aarav Nair
+DOB: 16/10/1988
+PAN: ZWRTT4695O",Aarav Nair,Aarav Nair,"[{'amount': 65021, 'type': 'credit', 'mode': 'upi'}, {'amount': 11047, 'type': 'credit', 'mode': 'salary'}, {'amount': 91189, 'type': 'credit', 'mode': 'card'}, {'amount': 71847, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Rohan Iyer
+DOB: 09/03/1998
+PAN: UTMSD7769T",Rohan Iyer,Rohan Iyer,"[{'amount': 28731, 'type': 'debit', 'mode': 'salary'}, {'amount': 39049, 'type': 'debit', 'mode': 'salary'}, {'amount': 77539, 'type': 'debit', 'mode': 'upi'}]",0,0
+"Name: Vihaan Verma
+DOB: 27/01/1988
+PAN: QHGOW9242L",Vihaan Verma,Vihaan Verma,"[{'amount': 65000, 'type': 'debit', 'mode': 'salary'}, {'amount': 64568, 'type': 'debit', 'mode': 'salary'}, {'amount': 36469, 'type': 'credit', 'mode': 'card'}]",0,1
+"Name: Aarav Reddy
+DOB: 28/03/1982
+PAN: FEBHE2665J",Aarav Reddy,Aarav Reddy,"[{'amount': 25604, 'type': 'credit', 'mode': 'upi'}, {'amount': 48747, 'type': 'credit', 'mode': 'salary'}, {'amount': 19015, 'type': 'credit', 'mode': 'card'}, {'amount': 76222, 'type': 'debit', 'mode': 'salary'}, {'amount': 70495, 'type': 'debit', 'mode': 'upi'}]",0,0
+"Name: Ananya Mehta
+DOB: 01/08/1990
+PAN: CNMVQ3716Q",Ananya Mehta,Ananya Mehta,"[{'amount': 48379, 'type': 'credit', 'mode': 'card'}, {'amount': 25123, 'type': 'debit', 'mode': 'salary'}, {'amount': 85631, 'type': 'credit', 'mode': 'upi'}, {'amount': 10968, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Saanvi Patel
+DOB: 14/01/1998
+PAN: ECAMH5189W",Saanvi Patel,Saanvi Patel,"[{'amount': 98447, 'type': 'debit', 'mode': 'card'}, {'amount': 13129, 'type': 'credit', 'mode': 'salary'}, {'amount': 84954, 'type': 'debit', 'mode': 'cash'}, {'amount': 15247, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Ishaan Verma
+DOB: 20/05/1980
+PAN: MXULA5431B",Ishaan Verma,Ishaan Verma,"[{'amount': 53866, 'type': 'debit', 'mode': 'cash'}, {'amount': 92710, 'type': 'debit', 'mode': 'salary'}]",1,0
+"Name: Aryan Reddy
+DOB: 07/12/1989
+PAN: YWZNU3161C",Aryan Reddy,Aryan Reddy,"[{'amount': 53003, 'type': 'debit', 'mode': 'card'}, {'amount': 4031, 'type': 'credit', 'mode': 'cash'}, {'amount': 53507, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Vihaan Iyer
+DOB: 14/03/1988
+PAN: HXFIX4912B",Vihaan Iyer,Vihaan Iyer,"[{'amount': 13580, 'type': 'debit', 'mode': 'salary'}, {'amount': 68866, 'type': 'credit', 'mode': 'cash'}]",1,1
+"Name: Diya Nair
+DOB: 13/01/1989
+PAN: VNVDJ3920R",Diya Nair,Diya Nair,"[{'amount': 98288, 'type': 'credit', 'mode': 'salary'}, {'amount': 72257, 'type': 'debit', 'mode': 'upi'}, {'amount': 22582, 'type': 'debit', 'mode': 'salary'}, {'amount': 41966, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Vihaan Verma
+DOB: 28/12/1980
+PAN: LJPBU7791P",Vihaan Verma,Vihaan Verma,"[{'amount': 24073, 'type': 'credit', 'mode': 'card'}, {'amount': 75697, 'type': 'debit', 'mode': 'salary'}, {'amount': 19126, 'type': 'credit', 'mode': 'upi'}, {'amount': 39047, 'type': 'debit', 'mode': 'cash'}, {'amount': 31835, 'type': 'credit', 'mode': 'card'}]",1,1
+"Name: Saanvi Reddy
+DOB: 18/01/1996
+PAN: MIHVV6528R",Saanvi Reddy,Saanvi Reddy,"[{'amount': 22742, 'type': 'credit', 'mode': 'cash'}, {'amount': 67448, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Rohan Singh
+DOB: 03/08/2001
+PAN: STHHN9417H",Rohan Singh,Rohan Singh,"[{'amount': 13767, 'type': 'debit', 'mode': 'upi'}, {'amount': 36754, 'type': 'debit', 'mode': 'salary'}, {'amount': 24994, 'type': 'debit', 'mode': 'upi'}]",0,0
+"Name: Rohan Gupta
+DOB: 23/02/1989
+PAN: LVTKQ1054H",Rohan Gupta,Rohan Gupta,"[{'amount': 8172, 'type': 'credit', 'mode': 'upi'}, {'amount': 35527, 'type': 'credit', 'mode': 'card'}, {'amount': 53516, 'type': 'credit', 'mode': 'salary'}, {'amount': 62501, 'type': 'credit', 'mode': 'cash'}]",1,0
+"Name: Aryan Verma
+DOB: 21/10/1989
+PAN: LEMNQ9731J",Aryan Verma,Aryan Verma,"[{'amount': 87282, 'type': 'credit', 'mode': 'cash'}, {'amount': 88220, 'type': 'debit', 'mode': 'card'}, {'amount': 99742, 'type': 'debit', 'mode': 'cash'}]",0,1
+"Name: Ishaan Joshi
+DOB: 17/07/1987
+PAN: OWLMW1467N",Ishaan Joshi,Ishaan Joshi,"[{'amount': 27437, 'type': 'credit', 'mode': 'cash'}, {'amount': 55827, 'type': 'debit', 'mode': 'upi'}]",0,1
+"Name: Rohan Gupta
+DOB: 10/09/1993
+PAN: FEQMI5385N",Rohan Gupta,Rohan Gupta,"[{'amount': 12130, 'type': 'credit', 'mode': 'salary'}, {'amount': 45501, 'type': 'credit', 'mode': 'card'}]",0,0
+"Name: Aditya Iyer
+DOB: 27/10/1983
+PAN: QVVUR7085Q",Aditya Iyer,Aditya Iyer,"[{'amount': 19207, 'type': 'credit', 'mode': 'card'}, {'amount': 69674, 'type': 'credit', 'mode': 'upi'}]",1,1
+"Name: Diya Verma
+DOB: 08/06/1998
+PAN: TPRFV4609Z",Diya Verma,Diya Verma,"[{'amount': 78461, 'type': 'debit', 'mode': 'salary'}, {'amount': 35486, 'type': 'debit', 'mode': 'card'}, {'amount': 38230, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Vihaan Mehta
+DOB: 02/04/1981
+PAN: ZKDQQ4719N",Vihaan Mehta,Vihaan Mehta,"[{'amount': 40176, 'type': 'credit', 'mode': 'cash'}, {'amount': 61087, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Kabir Nair
+DOB: 07/05/1996
+PAN: IMCKL2152D",Kabir Nair,Kabir Nair,"[{'amount': 94279, 'type': 'credit', 'mode': 'cash'}, {'amount': 92077, 'type': 'debit', 'mode': 'cash'}, {'amount': 79227, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Ananya Gupta
+DOB: 13/01/1986
+PAN: RIJJN8858T",Ananya Gupta,Ananya Gupta,"[{'amount': 91347, 'type': 'credit', 'mode': 'salary'}, {'amount': 75072, 'type': 'credit', 'mode': 'card'}]",0,0
+"Name: Ananya Patel
+DOB: 06/01/2000
+PAN: YXYJH4404N",Ananya Patel,Ananya Patel,"[{'amount': 39702, 'type': 'debit', 'mode': 'salary'}, {'amount': 21491, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Aarav Iyer
+DOB: 02/10/1985
+PAN: WOQKH8978M",Aarav Iyer,Aarav Iyer,"[{'amount': 9293, 'type': 'credit', 'mode': 'upi'}, {'amount': 87474, 'type': 'credit', 'mode': 'salary'}, {'amount': 62364, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Rohan Iyer
+DOB: 09/09/1988
+PAN: ZJBCF8539A",Rohan Iyer,Rohan Iyer,"[{'amount': 40583, 'type': 'debit', 'mode': 'cash'}, {'amount': 57104, 'type': 'debit', 'mode': 'cash'}, {'amount': 40211, 'type': 'debit', 'mode': 'salary'}, {'amount': 87882, 'type': 'credit', 'mode': 'upi'}, {'amount': 41817, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Ishaan Gupta
+DOB: 21/09/1994
+PAN: VQRMY7399A",Ishaan Gupta,Ishaan Gupta,"[{'amount': 42299, 'type': 'credit', 'mode': 'cash'}, {'amount': 50171, 'type': 'debit', 'mode': 'upi'}, {'amount': 40075, 'type': 'debit', 'mode': 'cash'}, {'amount': 29304, 'type': 'debit', 'mode': 'upi'}]",0,1
+"Name: Kabir Iyer
+DOB: 03/03/1996
+PAN: TBXRH7470Y",Kabir Iyer,Kabir Iyer,"[{'amount': 40002, 'type': 'credit', 'mode': 'salary'}, {'amount': 39967, 'type': 'debit', 'mode': 'salary'}, {'amount': 67881, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Vihaan Nair
+DOB: 22/01/1986
+PAN: BEVVY1061F",Vihaan Nair,Vihaan Nair,"[{'amount': 30657, 'type': 'debit', 'mode': 'upi'}, {'amount': 51400, 'type': 'debit', 'mode': 'upi'}, {'amount': 21074, 'type': 'debit', 'mode': 'upi'}]",0,1
+"Name: Aditya Iyer
+DOB: 06/02/2000
+PAN: ESCDN7319Y",Aditya Iyer,Aditya Iyer,"[{'amount': 12213, 'type': 'debit', 'mode': 'cash'}, {'amount': 5373, 'type': 'debit', 'mode': 'cash'}, {'amount': 55890, 'type': 'credit', 'mode': 'salary'}]",1,0
+"Name: Diya Singh
+DOB: 05/01/1991
+PAN: VDRLC7094I",Diya Singh,Diya Singh,"[{'amount': 75995, 'type': 'debit', 'mode': 'upi'}, {'amount': 65739, 'type': 'credit', 'mode': 'upi'}, {'amount': 19515, 'type': 'debit', 'mode': 'upi'}, {'amount': 50016, 'type': 'credit', 'mode': 'salary'}, {'amount': 62175, 'type': 'debit', 'mode': 'salary'}]",0,0
+"Name: Ishaan Reddy
+DOB: 20/12/1993
+PAN: MVSWO1771P",Ishaan Reddy,Ishaan Reddy,"[{'amount': 6844, 'type': 'credit', 'mode': 'cash'}, {'amount': 12344, 'type': 'credit', 'mode': 'cash'}, {'amount': 11622, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Saanvi Verma
+DOB: 08/07/2001
+PAN: QMHHD5284N",Saanvi Verma,Saanvi Verma,"[{'amount': 66079, 'type': 'debit', 'mode': 'salary'}, {'amount': 31998, 'type': 'credit', 'mode': 'cash'}, {'amount': 57932, 'type': 'debit', 'mode': 'cash'}, {'amount': 15548, 'type': 'credit', 'mode': 'card'}, {'amount': 52844, 'type': 'debit', 'mode': 'cash'}]",0,0
+"Name: Ananya Joshi
+DOB: 11/12/1998
+PAN: DKOYE5181I",Ananya Joshi,Ananya Joshi,"[{'amount': 21164, 'type': 'debit', 'mode': 'upi'}, {'amount': 69956, 'type': 'credit', 'mode': 'upi'}, {'amount': 99108, 'type': 'credit', 'mode': 'cash'}, {'amount': 21067, 'type': 'debit', 'mode': 'card'}]",0,0
+"Name: Aryan Iyer
+DOB: 04/01/1984
+PAN: HDBZY3422K",Aryan Iyer,Aryan Iyer,"[{'amount': 94811, 'type': 'credit', 'mode': 'salary'}, {'amount': 79695, 'type': 'debit', 'mode': 'cash'}, {'amount': 73578, 'type': 'debit', 'mode': 'card'}, {'amount': 80492, 'type': 'debit', 'mode': 'cash'}, {'amount': 84215, 'type': 'credit', 'mode': 'cash'}]",0,0
+"Name: Aditya Singh
+DOB: 27/09/1990
+PAN: RXKDV8652I",Aditya Singh,Aditya Singh,"[{'amount': 3229, 'type': 'debit', 'mode': 'cash'}, {'amount': 28624, 'type': 'debit', 'mode': 'salary'}, {'amount': 82813, 'type': 'credit', 'mode': 'cash'}]",1,0
+"Name: Diya Gupta
+DOB: 08/03/1998
+PAN: XGPWY8163G",Diya Gupta,Diya Gupta,"[{'amount': 16394, 'type': 'credit', 'mode': 'cash'}, {'amount': 91464, 'type': 'debit', 'mode': 'upi'}, {'amount': 98340, 'type': 'credit', 'mode': 'salary'}]",0,1
+"Name: Rohan Mehta
+DOB: 22/05/1995
+PAN: WQZLE9867K",Rohan Mehta,Rohan Mehta,"[{'amount': 56212, 'type': 'credit', 'mode': 'salary'}, {'amount': 8083, 'type': 'debit', 'mode': 'upi'}, {'amount': 15459, 'type': 'credit', 'mode': 'salary'}, {'amount': 69119, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Diya Mehta
+DOB: 19/06/1997
+PAN: LYMEX2069O",Diya Mehta,Diya Mehta,"[{'amount': 16659, 'type': 'credit', 'mode': 'cash'}, {'amount': 20631, 'type': 'credit', 'mode': 'card'}, {'amount': 59787, 'type': 'debit', 'mode': 'cash'}, {'amount': 5577, 'type': 'debit', 'mode': 'cash'}, {'amount': 33146, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Diya Iyer
+DOB: 11/04/1995
+PAN: CMYQZ6594M",Diya Iyer,Diya Iyer,"[{'amount': 67327, 'type': 'credit', 'mode': 'salary'}, {'amount': 85194, 'type': 'credit', 'mode': 'card'}]",0,0
+"Name: Ananya Singh
+DOB: 20/10/1985
+PAN: WHZIK4385R",Ananya Singh,Ananya Singh,"[{'amount': 2032, 'type': 'credit', 'mode': 'salary'}, {'amount': 54387, 'type': 'credit', 'mode': 'salary'}, {'amount': 3172, 'type': 'credit', 'mode': 'salary'}, {'amount': 15569, 'type': 'credit', 'mode': 'upi'}, {'amount': 43171, 'type': 'credit', 'mode': 'salary'}]",0,0
+"Name: Ananya Mehta
+DOB: 18/03/1981
+PAN: SLVRQ6253G",Ananya Mehta,Ananya Mehta,"[{'amount': 6626, 'type': 'credit', 'mode': 'cash'}, {'amount': 69281, 'type': 'credit', 'mode': 'cash'}, {'amount': 2878, 'type': 'debit', 'mode': 'card'}, {'amount': 77124, 'type': 'credit', 'mode': 'salary'}]",0,1
+"Name: Aryan Patel
+DOB: 19/08/1991
+PAN: GUDIA8750D",Aryan Patel,Aryan Patel,"[{'amount': 27424, 'type': 'credit', 'mode': 'salary'}, {'amount': 36597, 'type': 'credit', 'mode': 'card'}]",1,1
+"Name: Kabir Nair
+DOB: 15/09/1980
+PAN: TYUAY8132Q",Kabir Nair,Kabir Nair,"[{'amount': 45732, 'type': 'debit', 'mode': 'salary'}, {'amount': 55940, 'type': 'credit', 'mode': 'card'}]",1,0
+"Name: Vihaan Mehta
+DOB: 18/02/2000
+PAN: EXFFL4893T",Vihaan Mehta,Vihaan Mehta,"[{'amount': 96441, 'type': 'debit', 'mode': 'salary'}, {'amount': 12198, 'type': 'debit', 'mode': 'cash'}, {'amount': 5769, 'type': 'debit', 'mode': 'card'}, {'amount': 2652, 'type': 'credit', 'mode': 'upi'}]",0,0
+"Name: Aditya Verma
+DOB: 03/08/1981
+PAN: MBJVP1558U",Aditya Verma,Aditya Verma,"[{'amount': 11018, 'type': 'debit', 'mode': 'upi'}, {'amount': 97635, 'type': 'debit', 'mode': 'card'}, {'amount': 91354, 'type': 'credit', 'mode': 'card'}, {'amount': 99670, 'type': 'debit', 'mode': 'upi'}, {'amount': 90884, 'type': 'debit', 'mode': 'card'}]",0,0
