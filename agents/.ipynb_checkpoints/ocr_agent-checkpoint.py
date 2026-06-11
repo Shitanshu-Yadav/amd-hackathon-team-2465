@@ -1,14 +1,68 @@
-from models.schemas import OCROutput
+import json
+import re
 
-def ocr_agent(text: str) -> OCROutput:
-    data = {"name": "", "dob": "", "id_number": ""}
+from models.schemas import OCRResult
+from utils.llm_loader import llm
 
-    for line in text.split("\n"):
-        if "Name" in line:
-            data["name"] = line.split(":")[-1].strip()
-        elif "DOB" in line:
-            data["dob"] = line.split(":")[-1].strip()
-        elif "PAN" in line:
-            data["id_number"] = line.split(":")[-1].strip()
 
-    return OCROutput(**data)
+def extract_json(text):
+
+    matches = re.findall(
+        r'\{.*?\}',
+        text,
+        re.DOTALL
+    )
+
+    for item in matches:
+
+        try:
+            return json.loads(item)
+
+        except:
+            pass
+
+    return None
+
+
+def ocr_agent(document_text):
+
+    prompt = f"""
+Extract customer details from the document.
+
+Document:
+
+{document_text}
+
+Return JSON only.
+"""
+
+    response = llm(
+        prompt,
+        max_new_tokens=100,
+        do_sample=False
+    )[0]["generated_text"]
+
+    print(response)
+
+    # fallback extraction
+
+    name = re.search(
+        r"Name:\s*(.*)",
+        document_text
+    )
+
+    dob = re.search(
+        r"DOB:\s*(.*)",
+        document_text
+    )
+
+    pan = re.search(
+        r"PAN:\s*(.*)",
+        document_text
+    )
+
+    return OCRResult(
+        name=name.group(1).strip(),
+        dob=dob.group(1).strip(),
+        pan=pan.group(1).strip()
+    )

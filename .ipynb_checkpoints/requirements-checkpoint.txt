@@ -1,4 +1,7 @@
-langgraph
-pydantic
+transformers
+accelerate
+torch
 pandas
-numpy
+pydantic
+langgraph
+streamlit

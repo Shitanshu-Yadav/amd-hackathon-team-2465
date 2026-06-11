@@ -1,77 +1,249 @@
-from langgraph.graph import StateGraph
 from typing import TypedDict
+
+from langgraph.graph import StateGraph
+from langgraph.graph import END
+
+from models.schemas import (
+    OCRResult,
+    IdentityResult,
+    TransactionFeatures,
+    RiskResult
+)
 
 from agents.ocr_agent import ocr_agent
 from agents.identity_agent import identity_agent
-from agents.transaction_agent import transaction_agent
-from agents.compliance_agent import compliance_agent
+from agents.transaction_agent import transaction_feature_agent
+from agents.profile_agent import financial_profile_agent
 from agents.risk_agent import risk_agent
+from agents.review_agent import human_review_agent
+
+from utils.customer_data import (
+    customer_master_df,
+    transactions_df
+)
 
 
-# =========================
-# STATE DEFINITION
-# =========================
+# =====================================
+# STATE
+# =====================================
+
 class KYCState(TypedDict):
-    ocr_text: str
-    name: str
-    matched_name: str
-    transactions: list
-    pep_flag: int
-    sanctions_flag: int
+
+    customer_id: int
+
+    document_text: str
+
+    ocr_result: dict
+
+    identity_result: dict
+
+    transaction_features: dict
+
+    profile_result: dict
+
+    risk_result: dict
+
+    review_result: dict
 
 
-# =========================
-# MAIN PIPELINE NODE
-# =========================
-def run_kyc_pipeline(state: KYCState):
+# =====================================
+# OCR NODE
+# =====================================
 
-    # STEP 1: OCR
-    ocr_result = ocr_agent(state["ocr_text"])
+def ocr_node(state):
 
-    # STEP 2: Identity Verification
-    identity_result = identity_agent(
-        state["name"],
-        state["matched_name"]
+    result = ocr_agent(
+        state["document_text"]
     )
 
-    # STEP 3: Transaction Analysis
-    transaction_result = transaction_agent(state["transactions"])
-
-    # STEP 4: Compliance Check
-    compliance_result = compliance_agent(
-        state["pep_flag"],
-        state["sanctions_flag"]
-    )
-
-    # STEP 5: Risk Scoring
-    risk_result = risk_agent(
-        identity_result,
-        transaction_result,
-        compliance_result
-    )
-
-    # =========================
-    # FINAL OUTPUT (IMPORTANT)
-    # =========================
     return {
-        "ocr": ocr_result.model_dump(),
-        "identity": identity_result.model_dump(),
-        "transaction": transaction_result.model_dump(),
-        "compliance": compliance_result.model_dump(),
-        "risk": risk_result.model_dump()
+        "ocr_result":
+        result.model_dump()
     }
 
 
-# =========================
+# =====================================
+# IDENTITY NODE
+# =====================================
+
+def identity_node(state):
+
+    customer_record = customer_master_df[
+        customer_master_df["customer_id"]
+        ==
+        state["customer_id"]
+    ].iloc[0]
+
+    result = identity_agent(
+        OCRResult(
+            **state["ocr_result"]
+        ),
+        customer_record
+    )
+
+    return {
+        "identity_result":
+        result.model_dump()
+    }
+
+
+# =====================================
+# TRANSACTION NODE
+# =====================================
+
+def transaction_node(state):
+
+    txns = transactions_df[
+        transactions_df["customer_id"]
+        ==
+        state["customer_id"]
+    ].to_dict(
+        orient="records"
+    )
+
+    result = transaction_feature_agent(
+        txns
+    )
+
+    return {
+        "transaction_features":
+        result.model_dump()
+    }
+
+
+# =====================================
+# PROFILE NODE
+# =====================================
+
+def profile_node(state):
+
+    result = financial_profile_agent(
+        TransactionFeatures(
+            **state["transaction_features"]
+        )
+    )
+
+    return {
+        "profile_result":
+        result
+    }
+
+
+# =====================================
+# RISK NODE
+# =====================================
+
+def risk_node(state):
+
+    result = risk_agent(
+
+        IdentityResult(
+            **state["identity_result"]
+        ),
+
+        TransactionFeatures(
+            **state["transaction_features"]
+        ),
+
+        state["profile_result"]
+
+    )
+
+    return {
+        "risk_result":
+        result.model_dump()
+    }
+
+
+# =====================================
+# REVIEW NODE
+# =====================================
+
+def review_node(state):
+
+    result = human_review_agent(
+
+        RiskResult(
+            **state["risk_result"]
+        )
+
+    )
+
+    return {
+        "review_result":
+        result.model_dump()
+    }
+
+
+# =====================================
 # BUILD GRAPH
-# =========================
-def build_graph():
-    graph = StateGraph(KYCState)
+# =====================================
 
-    # single node pipeline (simple hackathon version)
-    graph.add_node("kyc_pipeline", run_kyc_pipeline)
+builder = StateGraph(KYCState)
 
-    graph.set_entry_point("kyc_pipeline")
-    graph.set_finish_point("kyc_pipeline")
+builder.add_node(
+    "ocr",
+    ocr_node
+)
 
-    return graph.compile()
+builder.add_node(
+    "identity",
+    identity_node
+)
+
+builder.add_node(
+    "transaction",
+    transaction_node
+)
+
+builder.add_node(
+    "profile",
+    profile_node
+)
+
+builder.add_node(
+    "risk",
+    risk_node
+)
+
+builder.add_node(
+    "review",
+    review_node
+)
+
+
+builder.set_entry_point(
+    "ocr"
+)
+
+builder.add_edge(
+    "ocr",
+    "identity"
+)
+
+builder.add_edge(
+    "identity",
+    "transaction"
+)
+
+builder.add_edge(
+    "transaction",
+    "profile"
+)
+
+builder.add_edge(
+    "profile",
+    "risk"
+)
+
+builder.add_edge(
+    "risk",
+    "review"
+)
+
+builder.add_edge(
+    "review",
+    END
+)
+
+graph = builder.compile()
