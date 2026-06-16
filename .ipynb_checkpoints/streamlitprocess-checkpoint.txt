@@ -1,0 +1,20 @@
+for stremlit command not found to install streamlit----
+python -m pip install --ignore-installed blinker streamlit
+
+verify--python -m streamlit version
+
+
+pip install streamlit pandas numpy rapidfuzz
+to verify
+pip list | grep streamlit
+
+
+streamlit run app.py \
+  --server.enableCORS false \
+  --server.enableXsrfProtection false
+
+
+https://notebooks.amd.com/jupyter-hack-team-2465-260611170858-a20b1989/proxy/8501/
+
+!bash setup.sh
+!pip install -r requirements.txt

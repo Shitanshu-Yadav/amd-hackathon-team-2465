@@ -1,39 +1,75 @@
 from typing import TypedDict
 
-from langgraph.graph import StateGraph
-from langgraph.graph import END
+from langgraph.graph import (
+    StateGraph,
+    END
+)
 
 from models.schemas import (
     OCRResult,
+    DocumentValidationResult,
     IdentityResult,
     TransactionFeatures,
+    FinancialProfile,
     RiskResult
 )
 
-from agents.ocr_agent import ocr_agent
-from agents.identity_agent import identity_agent
-from agents.transaction_agent import transaction_feature_agent
-from agents.profile_agent import financial_profile_agent
-from agents.risk_agent import risk_agent
-from agents.review_agent import human_review_agent
+from agents.ocr_agent import (
+    ocr_agent
+)
 
-from utils.customer_data import (
-    customer_master_df,
-    transactions_df
+from agents.document_validation_agent import (
+    document_validation_agent
+)
+
+from agents.identity_agent import (
+    identity_agent
+)
+
+from agents.transaction_agent import (
+    transaction_agent
+)
+
+from agents.profile_agent import (
+    financial_profile_agent
+)
+
+from agents.risk_agent import (
+    risk_agent
+)
+
+from agents.review_agent import (
+    human_review_agent
 )
 
 
-# =====================================
+# ==========================
+# SAFE DUMP
+# ==========================
+
+def safe_dump(x):
+
+    if hasattr(
+        x,
+        "model_dump"
+    ):
+
+        return x.model_dump()
+
+    return x
+
+
+# ==========================
 # STATE
-# =====================================
+# ==========================
 
 class KYCState(TypedDict):
 
     customer_id: int
 
-    document_text: str
-
     ocr_result: dict
+
+    document_result: dict
 
     identity_result: dict
 
@@ -46,144 +82,282 @@ class KYCState(TypedDict):
     review_result: dict
 
 
-# =====================================
-# OCR NODE
-# =====================================
+# ==========================
+# OCR
+# ==========================
 
-def ocr_node(state):
+def ocr_node(
+    state
+):
 
     result = ocr_agent(
-        state["document_text"]
+
+        state[
+            "customer_id"
+        ]
+
     )
 
     return {
+
         "ocr_result":
-        result.model_dump()
+
+        safe_dump(
+            result
+        )
+
     }
 
 
-# =====================================
-# IDENTITY NODE
-# =====================================
+# ==========================
+# DOCUMENT
+# ==========================
 
-def identity_node(state):
+def document_node(
+    state
+):
 
-    customer_record = customer_master_df[
-        customer_master_df["customer_id"]
-        ==
-        state["customer_id"]
-    ].iloc[0]
+    result = document_validation_agent(
+
+        state[
+            "customer_id"
+        ],
+
+        OCRResult(
+
+            **state[
+                "ocr_result"
+            ]
+
+        )
+
+    )
+
+    return {
+
+        "document_result":
+
+        safe_dump(
+            result
+        )
+
+    }
+
+
+# ==========================
+# ROUTER
+# ==========================
+
+def validation_router(
+    state
+):
+
+    if (
+
+        state[
+            "document_result"
+        ][
+            "proceed"
+        ]
+
+    ):
+
+        return "identity"
+
+    return END
+
+
+# ==========================
+# IDENTITY
+# ==========================
+
+def identity_node(
+    state
+):
 
     result = identity_agent(
+
         OCRResult(
-            **state["ocr_result"]
-        ),
-        customer_record
+
+            **state[
+                "ocr_result"
+            ]
+
+        )
+
     )
 
     return {
+
         "identity_result":
-        result.model_dump()
+
+        safe_dump(
+            result
+        )
+
     }
 
 
-# =====================================
-# TRANSACTION NODE
-# =====================================
+# ==========================
+# TRANSACTION
+# ==========================
 
-def transaction_node(state):
+def transaction_node(
+    state
+):
 
-    txns = transactions_df[
-        transactions_df["customer_id"]
-        ==
-        state["customer_id"]
-    ].to_dict(
-        orient="records"
+    customer_id = (
+
+        state[
+            "identity_result"
+        ][
+            "customer_id"
+        ]
+
     )
 
-    result = transaction_feature_agent(
-        txns
+    result = transaction_agent(
+
+        customer_id
+
     )
 
     return {
+
         "transaction_features":
-        result.model_dump()
+
+        safe_dump(
+            result
+        )
+
     }
 
 
-# =====================================
-# PROFILE NODE
-# =====================================
+# ==========================
+# PROFILE
+# ==========================
 
-def profile_node(state):
+def profile_node(
+    state
+):
 
     result = financial_profile_agent(
+
         TransactionFeatures(
-            **state["transaction_features"]
+
+            **state[
+                "transaction_features"
+            ]
+
         )
+
     )
 
     return {
+
         "profile_result":
-        result
+
+        safe_dump(
+            result
+        )
+
     }
 
 
-# =====================================
-# RISK NODE
-# =====================================
+# ==========================
+# RISK
+# ==========================
 
-def risk_node(state):
+def risk_node(
+    state
+):
 
     result = risk_agent(
 
         IdentityResult(
-            **state["identity_result"]
+
+            **state[
+                "identity_result"
+            ]
+
         ),
 
         TransactionFeatures(
-            **state["transaction_features"]
+
+            **state[
+                "transaction_features"
+            ]
+
         ),
 
-        state["profile_result"]
+        FinancialProfile(
 
-    )
+            **state[
+                "profile_result"
+            ]
 
-    return {
-        "risk_result":
-        result.model_dump()
-    }
-
-
-# =====================================
-# REVIEW NODE
-# =====================================
-
-def review_node(state):
-
-    result = human_review_agent(
-
-        RiskResult(
-            **state["risk_result"]
         )
 
     )
 
     return {
-        "review_result":
-        result.model_dump()
+
+        "risk_result":
+
+        safe_dump(
+            result
+        )
+
     }
 
 
-# =====================================
-# BUILD GRAPH
-# =====================================
+# ==========================
+# REVIEW
+# ==========================
 
-builder = StateGraph(KYCState)
+def review_node(
+    state
+):
+
+    result = human_review_agent(
+
+        RiskResult(
+
+            **state[
+                "risk_result"
+            ]
+
+        )
+
+    )
+
+    return {
+
+        "review_result":
+
+        safe_dump(
+            result
+        )
+
+    }
+
+
+# ==========================
+# BUILD
+# ==========================
+
+builder = StateGraph(
+    KYCState
+)
 
 builder.add_node(
     "ocr",
     ocr_node
+)
+
+builder.add_node(
+    "document",
+    document_node
 )
 
 builder.add_node(
@@ -211,14 +385,31 @@ builder.add_node(
     review_node
 )
 
-
 builder.set_entry_point(
     "ocr"
 )
 
 builder.add_edge(
     "ocr",
-    "identity"
+    "document"
+)
+
+builder.add_conditional_edges(
+
+    "document",
+
+    validation_router,
+
+    {
+
+        "identity":
+        "identity",
+
+        END:
+        END
+
+    }
+
 )
 
 builder.add_edge(

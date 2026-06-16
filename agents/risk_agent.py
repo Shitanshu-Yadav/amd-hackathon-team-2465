@@ -1,4 +1,7 @@
-from models.schemas import RiskResult
+from models.schemas import (
+    RiskResult
+)
+
 from utils.llm_loader import llm
 
 
@@ -10,68 +13,187 @@ def risk_agent(
 
     risk_score = 0
 
-    # Identity Risk
+    # ==========================
+    # IDENTITY
+    # ==========================
 
-    if identity_result.match_score < 0.80:
+    if (
+        identity_result.match_score
+        <
+        0.80
+    ):
+
         risk_score += 40
 
-    # Cash Usage
+    # ==========================
+    # CASH
+    # ==========================
 
-    if features.cash_ratio > 0.50:
+    if (
+        features.cash_ratio
+        >
+        0.50
+    ):
+
         risk_score += 25
 
-    # High Value Transactions
+    # ==========================
+    # HIGH VALUE
+    # ==========================
 
-    if features.high_value_txn_count > 0:
+    if (
+        features.high_value_txn_count
+        >
+        3
+    ):
+
         risk_score += 15
 
-    # Very High Credits
+    # ==========================
+    # CREDIT
+    # ==========================
 
-    if features.total_credit > 500000:
+    if (
+        features.total_credit
+        >
+        500000
+    ):
+
         risk_score += 10
 
-    # Risk Level
+    # ==========================
+    # INTERNATIONAL
+    # ==========================
+
+    if (
+        features.international_ratio
+        >
+        0.30
+    ):
+
+        risk_score += 10
+
+    # ==========================
+    # PROFILE SIGNAL
+    # ==========================
+
+    if (
+        "High Cash Usage"
+        in
+        profile_result.risk_indicators
+    ):
+
+        risk_score += 10
+
+    # ==========================
+    # LEVEL
+    # ==========================
 
     if risk_score >= 60:
+
         risk_level = "HIGH"
 
     elif risk_score >= 30:
+
         risk_level = "MEDIUM"
 
     else:
+
         risk_level = "LOW"
+
+    # ==========================
+    # LLM
+    # ==========================
 
     prompt = f"""
 You are a Senior KYC Risk Officer.
 
-Customer Identity Result:
+Return ONLY:
 
-{identity_result}
+Risk Reason: <one line>
 
-Customer Transaction Features:
+Main Concern: <one line>
 
-{features}
+Recommendation: <one line>
 
-Customer Financial Profile:
+Identity Status:
+{identity_result.match_status}
 
-{profile_result}
+Identity Score:
+{identity_result.match_score}
 
-Risk Score:
-{risk_score}
+Cash Ratio:
+{features.cash_ratio}
 
-Risk Level:
+High Value Count:
+{features.high_value_txn_count}
+
+International Ratio:
+{features.international_ratio}
+
+Customer Profile:
+{profile_result.profile}
+
+Risk Indicators:
+{profile_result.risk_indicators}
+
+Final Risk:
 {risk_level}
-
-Explain why the customer received this risk level in 3 lines.
 """
 
-    response = llm(
-        prompt,
-        max_new_tokens=120
-    )[0]["generated_text"]
+    explanation = ""
+
+    try:
+
+        response = llm(
+            prompt,
+            max_new_tokens=100
+        )[0][
+            "generated_text"
+        ]
+
+        explanation = (
+            response
+            .replace(
+                prompt,
+                ""
+            )
+            .strip()
+        )
+
+    except:
+        pass
+
+    # ==========================
+    # FALLBACK
+    # ==========================
+
+    if len(explanation) < 10:
+
+        explanation = f"""
+Risk Reason:
+Customer categorized as {risk_level} risk.
+
+Main Concern:
+Transaction and identity indicators.
+
+Recommendation:
+Proceed according to review workflow.
+"""
+
+    # ==========================
+    # RETURN
+    # ==========================
 
     return RiskResult(
-        risk_score=float(risk_score),
+
+        risk_score=float(
+            risk_score
+        ),
+
         risk_level=risk_level,
-        explanation=response[-500:]
+
+        explanation=(
+            explanation.strip()
+        )
     )
