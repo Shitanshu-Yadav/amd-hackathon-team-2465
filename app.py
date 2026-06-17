@@ -1,32 +1,32 @@
 import streamlit as st
+import pandas as pd
+
 from graph.kyc_graph import graph
 from models.schemas import RiskResult
 
-# ==========================
-# CONFIG
-# ==========================
+
+# ==========================================
+# PAGE CONFIG
+# ==========================================
 
 st.set_page_config(
-    page_title="KYC Risk Analyzer",
-    page_icon="🧾",
+    page_title="KYC Intelligence Dashboard",
+    page_icon="🏦",
     layout="wide"
 )
 
-# ==========================
-# HEADER
-# ==========================
-
-st.title(
-    "🧾 KYC Risk Analysis System"
-)
+st.title("🏦 KYC Intelligence Dashboard")
 
 st.caption(
     "OCR → Validation → Identity → Transaction → Profile → Risk → Human Review"
 )
 
-# ==========================
+st.divider()
+
+
+# ==========================================
 # INPUT
-# ==========================
+# ==========================================
 
 customer_id = st.number_input(
     "Enter Customer ID",
@@ -35,49 +35,54 @@ customer_id = st.number_input(
 )
 
 run = st.button(
-    "Run Analysis"
+    "🚀 Run Analysis",
+    use_container_width=True
 )
 
-# ==========================
+
+# ==========================================
 # RUN
-# ==========================
+# ==========================================
 
 if run:
 
-    with st.spinner(
-        "Running KYC Pipeline..."
-    ):
+    with st.spinner("Running KYC Pipeline..."):
 
         try:
 
             result = graph.invoke(
                 {
-                    "customer_id":
-                    customer_id
+                    "customer_id": customer_id
                 }
             )
 
         except Exception as e:
 
-            st.error(
-                str(e)
-            )
-
+            st.error(str(e))
             st.stop()
 
+    # =============================
+
     risk = RiskResult(
-        **result[
-            "risk_result"
-        ]
+        **result["risk_result"]
     )
 
-    review = result[
-        "review_result"
-    ]
+    review = result["review_result"]
 
-    # ==========================
-    # DECISION BANNER
-    # ==========================
+    identity = result["identity_result"]
+
+    txn = result["transaction_features"]
+
+    profile = result["profile_result"]
+
+    ocr = result["ocr_result"]
+
+    document = result["document_result"]
+
+
+    # ==========================================
+    # FINAL DECISION
+    # ==========================================
 
     if risk.risk_level == "HIGH":
 
@@ -94,198 +99,293 @@ if run:
     else:
 
         st.success(
-            "🟢 FINAL DECISION → APPROVED"
+            "🟢 FINAL DECISION → AUTO APPROVED"
         )
 
-    # ==========================
-    # DASHBOARD
-    # ==========================
 
-    st.subheader(
-        "📌 Customer Summary"
-    )
+    # ==========================================
+    # TOP KPI
+    # ==========================================
 
     c1, c2, c3, c4 = st.columns(4)
 
-    with c1:
-
-        st.metric(
-            "Customer ID",
-            result[
-                "identity_result"
-            ][
-                "customer_id"
-            ]
-        )
-
-    with c2:
-
-        st.metric(
-            "Risk Score",
-            risk.risk_score
-        )
-
-    with c3:
-
-        st.metric(
-            "Risk Level",
-            risk.risk_level
-        )
-
-    with c4:
-
-        st.metric(
-            "Review Queue",
-            review[
-                "review_queue"
-            ]
-        )
-
-    # ==========================
-    # PROGRESS
-    # ==========================
-
-    st.subheader(
-        "⚙ Pipeline Status"
+    c1.metric(
+        "Customer ID",
+        identity["customer_id"]
     )
 
-    st.success("✓ OCR Completed")
-    st.success("✓ Document Verified")
-    st.success("✓ Identity Verified")
-    st.success("✓ Transaction Analysis")
-    st.success("✓ Financial Profile")
-    st.success("✓ Risk Generated")
-
-    # ==========================
-    # RISK BAR
-    # ==========================
-
-    st.subheader(
-        "🚨 Risk Meter"
+    c2.metric(
+        "Risk Score",
+        f"{risk.risk_score}/100"
     )
 
-    st.progress(
-        min(
-            int(
-                risk.risk_score
-            ),
-            100
-        )
+    c3.metric(
+        "Risk Level",
+        risk.risk_level
     )
 
-    # ==========================
-    # MAIN GRID
-    # ==========================
-
-    left, right = st.columns(
-        2
+    c4.metric(
+        "Review Queue",
+        review["review_queue"]
     )
 
-    with left:
 
-        with st.expander(
-            "📄 OCR Result",
-            expanded=True
-        ):
+    st.divider()
 
-            st.json(
-                result[
-                    "ocr_result"
-                ]
+
+    # ==========================================
+    # TABS
+    # ==========================================
+
+    tab1, tab2, tab3, tab4 = st.tabs(
+        [
+            "📊 Overview",
+            "📈 Transactions",
+            "🧾 Verification",
+            "🧑 Human Review"
+        ]
+    )
+
+
+    # ==========================================
+    # TAB 1
+    # ==========================================
+
+    with tab1:
+
+        left, right = st.columns([2, 1])
+
+        with left:
+
+            st.subheader("Customer Profile")
+
+            st.markdown(
+                f"""
+### {profile["profile"]}
+
+{profile["ai_analysis"]}
+"""
             )
 
-        with st.expander(
-            "📑 Document Validation"
-        ):
-
-            st.json(
-                result[
-                    "document_result"
-                ]
+            st.subheader(
+                "Risk Indicators"
             )
 
-        with st.expander(
-            "🪪 Identity Verification"
-        ):
+            for item in profile["risk_indicators"]:
 
-            st.json(
-                result[
-                    "identity_result"
-                ]
+                st.success(
+                    item
+                )
+
+        with right:
+
+            st.subheader(
+                "Risk Meter"
             )
 
-    with right:
-
-        with st.expander(
-            "💳 Transaction Features",
-            expanded=True
-        ):
-
-            st.json(
-                result[
-                    "transaction_features"
-                ]
+            st.progress(
+                int(
+                    min(
+                        risk.risk_score,
+                        100
+                    )
+                )
             )
 
-        with st.expander(
-            "📊 Financial Profile"
-        ):
-
-            st.json(
-                result[
-                    "profile_result"
-                ]
+            st.metric(
+                "Risk %",
+                f"{risk.risk_score}%"
             )
 
-        with st.expander(
-            "🚨 Risk Analysis"
-        ):
-
-            st.write(
+            st.error(
                 risk.explanation
             )
 
-    # ==========================
-    # REVIEW
-    # ==========================
 
-    st.subheader(
-        "🧑‍💼 Human Review"
-    )
+    # ==========================================
+    # TAB 2
+    # ==========================================
 
-    st.json(
-        review
-    )
+    with tab2:
 
-    if review[
-        "escalate"
-    ]:
-
-        comment = st.text_area(
-            "Reviewer Comment",
-            height=150
+        st.subheader(
+            "Transaction Analytics"
         )
 
-        if st.button(
-            "Save Review"
-        ):
+        a, b, c, d = st.columns(4)
+
+        a.metric(
+            "Credit",
+            f"₹{txn['total_credit']:,.0f}"
+        )
+
+        b.metric(
+            "Debit",
+            f"₹{txn['total_debit']:,.0f}"
+        )
+
+        c.metric(
+            "Cash Ratio",
+            f"{txn['cash_ratio']*100:.1f}%"
+        )
+
+        d.metric(
+            "Avg Balance",
+            f"₹{txn['avg_account_balance']:,.0f}"
+        )
+
+        chart = pd.DataFrame(
+            {
+                "Metric": [
+                    "Credit",
+                    "Debit"
+                ],
+
+                "Amount": [
+                    txn["total_credit"],
+                    txn["total_debit"]
+                ]
+            }
+        )
+
+        st.bar_chart(
+            chart.set_index(
+                "Metric"
+            )
+        )
+
+        st.subheader(
+            "Transaction Summary"
+        )
+
+        txn_df = pd.DataFrame(
+            [
+                txn
+            ]
+        )
+
+        st.dataframe(
+            txn_df,
+            use_container_width=True
+        )
+
+
+    # ==========================================
+    # TAB 3
+    # ==========================================
+
+    with tab3:
+
+        l, r = st.columns(2)
+
+        with l:
+
+            st.subheader(
+                "OCR Information"
+            )
+
+            st.info(
+                f"""
+Name:
+{ocr['name']}
+
+DOB:
+{ocr['dob']}
+
+PAN:
+{ocr['pan']}
+"""
+            )
+
+            st.subheader(
+                "Document Verification"
+            )
+
+            st.metric(
+                "Document Score",
+                document["document_score"]
+            )
 
             st.success(
-                "Comment Saved"
+                document["status"]
+            )
+
+        with r:
+
+            st.subheader(
+                "Identity Verification"
+            )
+
+            st.metric(
+                "Match Score",
+                identity["match_score"]
             )
 
             st.write(
-                comment
+                identity["match_status"]
             )
 
-    # ==========================
-    # RAW OUTPUT
-    # ==========================
+            st.success(
+                identity["reasoning"]
+            )
 
-    with st.expander(
-        "🔍 Debug Output"
-    ):
 
-        st.json(
-            result
+    # ==========================================
+    # TAB 4
+    # ==========================================
+
+    with tab4:
+
+        st.subheader(
+            "Human Review"
         )
+
+        st.write(
+            f"""
+Queue:
+{review['review_queue']}
+"""
+        )
+
+        if review["escalate"]:
+
+            comment = st.text_area(
+                "Reviewer Notes",
+                height=150
+            )
+
+            c1, c2 = st.columns(2)
+
+            with c1:
+
+                if st.button(
+                    "✅ Approve"
+                ):
+
+                    st.success(
+                        "Customer Approved"
+                    )
+
+                    st.write(
+                        comment
+                    )
+
+            with c2:
+
+                if st.button(
+                    "❌ Reject"
+                ):
+
+                    st.error(
+                        "Customer Rejected"
+                    )
+
+                    st.write(
+                        comment
+                    )
+
+        else:
+
+            st.success(
+                "No human review required"
+            )
